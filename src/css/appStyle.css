@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
+@keyframes ripple {
+	0% {
+		transform: scale(0, 0);
+		opacity: 1;
+	}
+	20% {
+		transform: scale(25, 25);
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: scale(40, 40);
+	}
+}
+
+body {
+	background: #eee;
+	font-family: "Roboto", "Open Sans", sans-serif;
+}
+
+.mui-appbar {
+	background: #4527a0 !important;
+}
+
+.formElementWrapper {
+	min-height: 88vh;
+	/*margin-right: 10px !important;*/
+	/*margin-left: 10px !important;*/
+	/*margin-top: 10px !important;*/
+}
+
+.panelMargin {
+	margin-right: 10px !important;
+	margin-left: 10px !important;
+	margin-top: 10px !important;
+}
+
+.legendStyle {
+	border-bottom: 1px solid #ddd !important;
+	border-radius: 0;
+	color: #333333;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.panelWidthFixedAklt {
+	max-width: 600px;
+	margin: 10px auto !important;
+}
+
+.flexRowWrap {
+	display: flex !important;
+	flex-direction: row !important;
+}
+
+.formMarginWrapper > div {
+	margin: 15px auto 20px auto;
+}
+
+.dropzoneBg {
+	margin-top: 10px !important;
+	border: 1px dashed cadetblue;
+	min-height: 180px;
+	background: rgb(200, 218, 223);
+	color: rgb(16, 60, 74);
+	font-size: 16px;
+	background-repeat: no-repeat;
+	background-position: 50% 36%;
+	background-size: 65px;
+}
+
+.albumDrop {
+	background-color: #c6dbef;
+	border-color: #19558e;
+}
+
+.dropzoneBg > .dropzoneInside {
+	margin: 120px 0 0 0;
+	display: block;
+	text-align: center;
+}
+
+.albumCoverPreview {
+	z-index: 999;
+	width: 100%;
+	max-width: 100%;
+	max-height: 200px;
+	height: auto;
+	background: #fff;
+	margin-bottom: -18px;
+}
+
+.sideNavBar {
+	list-style: none;
+	padding: 0;
+	margin: 0 -1.1em;
+}
+
+.sideNavBar > li {
+	padding: 0;
+	line-height: 23px;
+}
+
+.sideNavBar > li.heading {
+	padding: 0px 15px;
+	font-weight: bold;
+}
+
+.sideNavBar > li.heading:hover {
+	background: none;
+}
+
+.sideNavBar > li.heading > h4 {
+	border-bottom: 1px solid #e6e6e6;
+	padding: 1px 10px;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+}
+
+.sideNavBar > li > .active {
+	background: #e5e5f7;
+}
+
+.sideNavBar > li:hover {
+	background: #eee;
+}
+
+.sideNavBar > li > a {
+	text-align: left;
+	vertical-align: middle;
+	display: flex;
+	padding: 15px 15px;
+	text-decoration: none;
+	color: #000;
+}
+
+.sideNavBar > li > a > i.material-icons {
+	margin: -2px 8px;
+}
+
+.mui-ripple-effect:focus:not(:active)::after {
+	animation: ripple 1s ease-out;
+}
+
+.mui-ripple-effect:after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 8px;
+	height: 8px;
+	background: rgba(255, 255, 255, 0.5);
+	opacity: 0;
+	border-radius: 100%;
+	transform: scale(1, 1) translate(-50%);
+	transform-origin: 50% 50%;
+}
+
+.mui-ripple-effect {
+	position: relative;
+	overflow: hidden;
+}
+
+.colList > li {
+	list-style: none;
+	margin-left: -2.5em;
+}
+
+.colList > li:nth-child(2n) {
+	padding: 12px 5px;
+	background: #f6f6f6;
+}
+
+.colList > li:nth-child(2n+1) {
+	padding: 12px 5px;
+	background: #ffffff;
+}
+
+.colList > li > span > a {
+	padding: 0 8px;
+	display: inline-block;
+}
+
+.colList > li > span > a:hover {
+	background: #e6e6e6;
+}
+
+h3.heading, h2.heading {
+	border-bottom: 1px solid #ddd;
+	padding: 5px 10px;
+	font-weight: bold;
+}
+
+i.red-color {
+	color: red !important;
+}
+
+i.green-color {
+	color: #4CAF50;
+}
+
+button.deleteBtn {
+	border: none;
+	padding: 0px 8px;
+	background: transparent;
+}
+
+button.deleteBtn:hover {
+	border: none;
+	background: #e6e6e6;
+}
+
+div.albumPhotosWrap > div.imageWrap {
+	display: inline-block;
+}
+
+div.albumPhotosWrap {
+	border-top: 1px solid #eee;
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+}
+
+div.albumPhotosWrap > div.imageWrap > button {
+	position: relative;
+	border: none;
+	background: none;
+	top: -80px;
+	left: 105px;
+	font-weight: bold;
+	font-size: 24px;
+	color: #000;
+	z-index: 1;
+	text-shadow: 1px 1px 0px red;
+	filter: alpha(opacity=20);
+	opacity: 0.8;
+}
+
+div.albumPhotosWrap > div.imageWrap > button:hover {
+	color: #4527a0;
+	border: 1px solid #eee;
+	border-radius: 15px;
+	background: #f7f7f7;
+	text-shadow: 1px 1px 0px #fff;
+}
+
+div.albumPhotosWrap > div.imageWrap > img {
+	margin: 5px;
+	display: inline-block;
+}
+
+div.imageWrap:hover > img.albumPhotos {
+	opacity: 0.8;
+}
+
+.error404 {
+	text-align: center;
+	padding: 40px 10px;
+}
+
+.error404 > h1 {
+	font-size: 100px;
+	line-height: 100px;
+	border-bottom: 1px solid #bbb;
+}
+
+.error404 > div {
+	font-size: 40px;
+}
+
+.error404 > div > p > a {
+	font-size: 30px;
+}

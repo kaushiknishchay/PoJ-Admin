@@ -1,0 +1,90 @@
+.App {
+	text-align: center;
+}
+
+.App-logo {
+	animation: App-logo-spin infinite 20s linear;
+	height: 80px;
+}
+
+.App-header {
+	background-color: #222;
+	height: 150px;
+	padding: 20px;
+	color: white;
+}
+
+.App-title {
+	font-size: 1.5em;
+}
+
+.App-intro {
+	font-size: large;
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.login-panel {
+	width: 60%;
+	margin: 20px auto;
+}
+
+.panelMargin {
+	margin: 20px auto !important;
+	max-width: 900px;
+}
+
+.navLinks {
+	margin: 0;
+	text-align: right;
+	display: inline-block;
+}
+
+.navLinks > li {
+	color: #ffffff;
+	font-size: 19px;
+	padding: 4px;
+	margin: 0 5px;
+	list-style: none;
+	display: inline-block;
+}
+
+.navLinks > li > a {
+	color: white;
+}
+
+.loginError {
+	padding: 8px;
+	color: #ffffff;
+}
+
+.TabsPanel > .mui-tabs__bar {
+	background: #ffffff;
+	margin-top: 1px;
+	margin-bottom: 0 !important;
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 0 2px 0 rgba(0, 0, 0, .12);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .16), 0 0 2px 0 rgba(0, 0, 0, .12)
+}
+
+.alert-success {
+	padding: 15px;
+	border-radius: 4px;
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+}
+
+.alert-danger {
+	padding: 15px;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
+}

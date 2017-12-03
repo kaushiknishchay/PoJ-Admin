@@ -12,7 +12,7 @@ export const fileUpload = {
 	updateAlbum,
 	deleteAlbum
 };
-
+// const authStore = store.getState().authenticate;
 let serverUrl = "http://picturesofjoy/api/v1";
 
 let sConfig = {
@@ -30,6 +30,7 @@ let sConfig = {
 };
 
 function setAuthToken() {
+	console.log("called");
 	sConfig.headers.Authorization = "Bearer " + localStorage.getItem("ApiToken");
 }
 function removeAuthToken() {

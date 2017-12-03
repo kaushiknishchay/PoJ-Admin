@@ -19,15 +19,16 @@ class CreateCollection extends React.Component {
 	componentWillMount() {
 		let eCol = this.props.collection;
 		if (eCol !== undefined && eCol !== null && eCol.id !== undefined && !isNaN(eCol.id)) {
+			document.title = 'Edit - ' + eCol.name;
 			this.setState({
 				isEditForm: true,
 				collectionName: eCol.name,
 				collectionDesc: eCol.description,
 				collectionCover: BASE_URL + eCol.cover,
 			});
-
+		}else {
+			document.title = 'Create New Collection';
 		}
-
 	}
 
 	constructor(props) {
@@ -53,7 +54,7 @@ class CreateCollection extends React.Component {
 	}
 
 	render() {
-		let {isPosting, collectionName, collectionCover, isCreated, isEditForm,collectionDesc} = this.state;
+		let {isPosting, collectionName, collectionCover, isCreated, isEditForm, collectionDesc} = this.state;
 		let name = collectionName, desc = collectionDesc, cover = collectionCover, alertText = "";
 		if (isEditForm) {
 			alertText = " Updated ";
@@ -167,9 +168,7 @@ class CreateCollection extends React.Component {
 
 		serverPromise
 				.then(res => {
-					// console.log(res);
 					if (res.status === 200 && res.data.success === true) {
-						// console.log(res.data);
 						this.setState({
 							isCreated: true
 						});
@@ -200,9 +199,10 @@ class CreateCollection extends React.Component {
 	}
 }
 function mapStateToProps(state) {
-	let {username} = state.authenticate;
+	let {username, loggedIn} = state.authenticate;
 	return {
-		username
+		username,
+		loggedIn
 	};
 }
 export default connect(mapStateToProps)(CreateCollection);

@@ -5,6 +5,7 @@ import {fileUpload} from "../service/fileUpload";
 export default class HomeLayout extends Component {
 
 	componentWillMount() {
+		document.title = 'Dashboard';
 		fileUpload.setAuthToken();
 
 		fileUpload.getCollection().then(res => {

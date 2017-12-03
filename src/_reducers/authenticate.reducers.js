@@ -1,8 +1,12 @@
-import {actionConstants} from '../constant/user.constants';
+import {actionConstants} from "../constant/user.constants";
 
 let user = localStorage.getItem('username');
 let ApiToken = localStorage.getItem('ApiToken');
-const initialState = user ? {loggedIn: true, username: user, ApiToken: ApiToken} : {loggedIn: false};
+const initialState = (user && ApiToken.length > 10) ? {
+	loggedIn: true,
+	username: user,
+	ApiToken: ApiToken
+} : {loggedIn: false};
 
 export function authenticate(state = initialState, action) {
 	switch (action.type) {

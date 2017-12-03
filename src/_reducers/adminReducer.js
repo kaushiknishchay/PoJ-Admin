@@ -3,6 +3,7 @@ let initialState = {
 	collectionList: "",
 	collectionListError: "",
 	editCollection: "",
+	editCollectionError: "",
 	isCollectionInEditMode: false
 };
 export function adminReducer(state = initialState, action) {
@@ -11,24 +12,34 @@ export function adminReducer(state = initialState, action) {
 			return {
 				...state,
 				collectionList: action.data,
-				collectionListError: ""
+				collectionListError: "",
+				isCollectionInEditMode: false
 			};
 		case actionConstants.GET_COLLECTIONS_LIST_ERROR:
 			return {
 				...state,
 				collectionList: "",
-				collectionListError: action.data
+				collectionListError: action.data,
+				isCollectionInEditMode: false
+			};
+		case actionConstants.UPDATE_COLLECTION_LIST:
+			const newCol = state.collectionList;
+			return {
+				...state,
+				collectionList: newCol.slice(0, action.data).concat(newCol.slice(action.data + 1)),
 			};
 		case actionConstants.GET_COLLECTIONS_INFO_SUCCESS:
 			return {
 				...state,
 				editCollection: action.data,
+				editCollectionError: "",
 				isCollectionInEditMode: true
 			};
 		case actionConstants.GET_COLLECTIONS_INFO_ERROR:
 			return {
 				...state,
 				editCollection: "",
+				editCollectionError: action.data,
 				isCollectionInEditMode: false
 			};
 		default:

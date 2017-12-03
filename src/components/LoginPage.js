@@ -35,11 +35,11 @@ class LoginPage extends Component {
 
 	render() {
 
-		const {from} = this.props.location.state || {from: {pathname: '/home'}};
+		// const {from} = this.props.location.state || {from: {pathname: '/home'}};
 		const {loggingIn, loggedIn, loginError} = this.props;
 
 		if (loggedIn) {
-			return (<Redirect to={from}/>)
+			return (<Redirect to={'/home'}/>)
 		}
 
 		return (

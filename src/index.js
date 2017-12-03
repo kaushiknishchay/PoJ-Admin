@@ -16,10 +16,10 @@ import {HashRouter as Router} from "react-router-dom";
  */
 
 ReactDOM.render(
-		<Router >
-			<Provider store={store}>
+		<Provider store={store}>
+			<Router >
 				<App/>
-			</Provider>
-		</Router>
+			</Router>
+		</Provider>
 		, document.getElementById('root'));
 registerServiceWorker();

@@ -1,4 +1,5 @@
 import axios from "axios";
+import {apiBaseUrl} from "../constant/user.constants";
 
 export const fileUpload = {
 	setAuthToken,
@@ -13,7 +14,7 @@ export const fileUpload = {
 	deleteAlbum
 };
 // const authStore = store.getState().authenticate;
-let serverUrl = "http://picturesofjoy/api/v1";
+let serverUrl = apiBaseUrl;
 
 let sConfig = {
 	onUploadProgress: function (progressEvent) {

@@ -12,7 +12,7 @@ import "../../css/appStyle.css";
 import {fileUpload} from "../../service/fileUpload";
 import {connect} from "react-redux";
 import AlertBox from "../Helpers/AlertBox";
-import {BASE_URL} from "../../constant/routes.config";
+import {BASE_URL} from "../../constant/user.constants";
 
 class CreateCollection extends React.Component {
 
@@ -108,7 +108,8 @@ class CreateCollection extends React.Component {
 											className="dropzoneBg albumDrop"
 											multiple={false}>
 										{cover && <img src={cover} className="albumCoverPreview" alt={name}/>}
-										{collectionCover && (
+
+										{collectionCover!=="" && cover==="" && (
 												<img
 														className="albumCoverPreview"
 														src={collectionCover.preview}

@@ -11,7 +11,7 @@ import Col from "muicss/lib/react/col";
 import Dropzone from "react-dropzone";
 import {fileUpload} from "../../service/fileUpload";
 import AlertBox from "../Helpers/AlertBox";
-import {BASE_URL} from "../../constant/routes.config";
+import {BASE_URL} from "../../constant/user.constants";
 
 class CreateAlbum extends React.Component {
 
@@ -97,10 +97,17 @@ class CreateAlbum extends React.Component {
 		let {
 			isPosting, albumName, albumCover, collectionName,
 			albumFiles, collectionList, albumDesc, isCreated, isEditForm,
-		editAlbumValue} = this.state;
+			editAlbumValue
+		} = this.state;
 
-		let name = albumName, desc = albumDesc, cover = BASE_URL + editAlbumValue.thumb_url, collection_id = collectionName,
-				albumPhotos = JSON.parse(editAlbumValue.photo_url), alertText = "";
+		let name = albumName, desc = albumDesc, collection_id = collectionName, cover = "", alertText = "",
+				albumPhotos = "";
+		if (editAlbumValue.thumb_url) {
+			cover = BASE_URL + editAlbumValue.thumb_url;
+		}
+		if (editAlbumValue.photo_url) {
+			albumPhotos = JSON.parse(editAlbumValue.photo_url);
+		}
 
 		if (isEditForm) {
 			alertText = " Updated ";

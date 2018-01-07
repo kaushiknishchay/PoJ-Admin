@@ -1,12 +1,12 @@
 import axios from "axios";
 import {fileUpload} from "./fileUpload";
+import {apiBaseUrl} from "../constant/user.constants";
 
 export const loginService = {
 	login,
 	logout
 };
 
-let apiBaseUrl = "http://picturesofjoy/api/v1";
 
 function login(username, password) {
 	const requestOptions = {

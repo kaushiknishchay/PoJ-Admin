@@ -27,7 +27,14 @@ class SideNavBar extends Component {
 								<b>Dashboard</b>
 							</NavLink>
 						</li>
-
+						<li>
+							<NavLink to="/manageSlider"
+							         activeClassName="active"
+							         className="mui-ripple-effect">
+								<i className="material-icons">create</i>
+								Manage Slider
+							</NavLink>
+						</li>
 						<li className="heading">
 							<h4>Manage Collection(s)</h4>
 						</li>

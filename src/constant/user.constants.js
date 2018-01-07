@@ -16,3 +16,6 @@ export const actionConstants = {
 	GET_COLLECTIONS_INFO_SUCCESS:'GET_COLLECTIONS_INFO_SUCCESS',
 	GET_COLLECTIONS_INFO_ERROR:'GET_COLLECTIONS_INFO_ERROR',
 };
+
+export const BASE_URL = "http://api.picturesofjoy.com/";
+export const apiBaseUrl = "http://api.picturesofjoy.com/api/v1";

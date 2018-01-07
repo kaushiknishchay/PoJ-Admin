@@ -9,6 +9,7 @@ import LoginPage from "../components/LoginPage";
 import EditCollection from "../components/Collection/EditCollection";
 import EditAlbum from "../components/Albums/EditAlbum";
 import Error404 from "../components/Helpers/Error404";
+import ManageSlider from "../components/ManageSlider";
 const routes = [
 	{
 		path: "/",
@@ -59,6 +60,12 @@ const routes = [
 		main: () => <EditAlbum/>
 	},
 	{
+		path: '/manageSlider',
+		private: true,
+		exact: true,
+		main: () => <ManageSlider/>
+	},
+	{
 		path: '/albumEdit/:albumId',
 		private: true,
 		exact: true,
@@ -72,4 +79,3 @@ const routes = [
 ];
 
 export default routes;
-export const BASE_URL = "http://picturesofJoy/";

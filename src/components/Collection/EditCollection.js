@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Panel} from "muicss/react";
-import {NavLink, Redirect, withRouter} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import AlertBox from "../Helpers/AlertBox";
 import CreateCollection from "./CreateCollection";
 import {connect} from "react-redux";

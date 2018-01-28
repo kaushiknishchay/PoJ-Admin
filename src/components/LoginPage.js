@@ -7,7 +7,6 @@ import Button from "muicss/lib/react/button";
 import {bindActionCreators} from "redux";
 import {userActions} from "../actions/userActions";
 import {Redirect, withRouter} from "react-router-dom";
-
 class LoginPage extends Component {
 
 	constructor(props) {

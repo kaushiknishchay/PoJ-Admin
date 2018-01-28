@@ -1,5 +1,5 @@
 import {actionConstants} from "../constant/user.constants";
-import {loginService as userService} from "../service/login.service";
+import {userService} from "../service/userService";
 export const userActions = {
 	login,
 	logout
@@ -13,20 +13,26 @@ function login(username, password) {
 		userService.login(username, password)
 				.then(
 						user => {
+							// console.log(user);
+							// user = user.username===undefined?{...user, "username": username}:user;
 							user = {...user, "username": username};
 							// console.log(user);
 							if (user && user.api_key && user.username) {
-								// store user details and jwt token in local storage to keep user logged in between page refreshes
+								// store user details and jwt token in local storage
+								// to keep user logged in between page refreshes
 								localStorage.setItem('username', user.username);
 								localStorage.setItem('ApiToken', user.api_key);
 								if (localStorage.getItem("ApiToken") !== "") {
 									dispatch(success(user));
+								}else {
+									dispatch(failure("Login Failed"));
 								}
 							} else {
 								dispatch(failure("Login Failed"));
 							}
 						},
 						error => {
+							// console.log(error);
 							dispatch(failure(error));
 							dispatch(errorSend(error));
 						}
@@ -51,7 +57,7 @@ function login(username, password) {
 }
 
 function logout() {
-	console.log("Logout Action Fired.");
+	// console.log("Logout Action Fired.");
 	userService.logout();
 	return {type: actionConstants.LOGOUT};
 }

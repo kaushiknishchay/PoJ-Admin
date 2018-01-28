@@ -4,21 +4,17 @@ import CreateAlbum from "./CreateAlbum";
 import AlertBox from "../Helpers/AlertBox";
 import {Panel} from "muicss/react";
 import {NavLink, withRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {adminActions} from "../../actions/admin.actions";
 
 class EditAlbum extends Component {
 
-	componentWillMount() {
-		fileUpload.getAlbum().then(res => {
-			if (res.status === 200) {
-				this.setState({
-					albumList: res.data
-				});
-			}
-		}).catch(err => {
-		});
-	// }
-	//
-	// componentDidMount() {
+	componentDidMount() {
+
+
+		this.props.getAlbumList();
+
 		let urlParams = this.props.match.params;
 		if (urlParams !== undefined && urlParams.albumId !== undefined && urlParams.albumId !== null) {
 
@@ -68,8 +64,7 @@ class EditAlbum extends Component {
 	}
 
 	render() {
-		let {isInEditMode, isDeleted, editAlbum, albumList} = this.state;
-
+		let {isInEditMode, isDeleted, editAlbum} = this.state;
 
 		return (
 				<div>
@@ -81,14 +76,27 @@ class EditAlbum extends Component {
 							{isDeleted === false &&
 							<AlertBox className="danger" title="Collection NOT Deleted."/>}
 							<ul className="colList">
-								{
-									albumList.map((value, idx) => {
-										let editLink = "/albumEdit/" + value.albumkey;
+								{this.renderAlbumList()}
+							</ul>
+						</div>
+					</Panel>
+					}
+					{isInEditMode &&
+					<CreateAlbum albumData={editAlbum}/>
+					}
+				</div>
+		)
+	}
 
-										return (
-												<li key={value.id}>
-													<span>{value.name}</span>
-													<span className="mui--pull-right">
+	renderAlbumList() {
+		if (this.props.albumList) {
+			return this.props.albumList.map((value, idx) => {
+				let editLink = "/albumEdit/" + value.albumkey;
+
+				return (
+						<li key={value.id}>
+							<span>{value.name}</span>
+							<span className="mui--pull-right">
 											<NavLink to={editLink}
 											         activeClassName="active">
 												<i className="material-icons green-color">
@@ -103,18 +111,21 @@ class EditAlbum extends Component {
 												</i>
 											</button>
 											</span>
-												</li>)
-									})
-								}
-							</ul>
-						</div>
-					</Panel>
-					}
-					{isInEditMode &&
-					<CreateAlbum albumData={editAlbum}/>
-					}
-				</div>
-		)
+						</li>)
+			})
+		}
 	}
 }
-export default withRouter(EditAlbum);
+function mapStateToProps(state) {
+	const {albumList, albumListError} = state.adminReducer;
+	return {
+		albumList,
+		albumListError
+	};
+}
+function mapDispatchToProps(dispatch) {
+	return bindActionCreators({
+		getAlbumList: adminActions.getAlbumList
+	}, dispatch);
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditAlbum));

@@ -14,18 +14,29 @@
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-router": "^2.1.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "testv": "react-scripts test --env=jsdom --verbose --colors",
     "coverage": "react-scripts test --env=jsdom --coverage",
+    "jest": "./node_modules/.bin/jest",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.10.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "jest-localstorage-mock": "^2.1.0",
     "react-test-renderer": "^16.2.0",
-    "redux-logger": "^3.0.6"
-  }
+    "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.4.0"
+  },
+  "main": "src/index.js",
+  "repository": "https://github.com/kaushiknishchay/PoJ-Admin.git",
+  "author": "SHolmes <kaushiknishchay@gmail.com>",
+  "license": "MIT"
 }

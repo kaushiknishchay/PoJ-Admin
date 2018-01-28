@@ -2,7 +2,7 @@ import axios from "axios";
 import {fileUpload} from "./fileUpload";
 import {apiBaseUrl} from "../constant/user.constants";
 
-export const loginService = {
+export const userService = {
 	login,
 	logout
 };
@@ -25,9 +25,6 @@ function login(username, password) {
 				if (response.data.code === 200) {
 					console.log("Login successfull");
 					return response.data;
-					//var uploadScreen = [];
-					//uploadScreen.push(<UploadScreen appContext={self.props.appContext}/>)
-					//self.props.appContext.setState({loginPage: [], uploadScreen: uploadScreen})
 				}
 				else if (response.data.code === 204) {
 					console.log("Username password do not match");

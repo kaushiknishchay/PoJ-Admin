@@ -13,6 +13,7 @@ import {userActions} from "../../actions/userActions";
 
 class EditCollection extends Component {
 
+
 	componentWillMount() {
 		document.title = 'View/Edit Collections';
 
@@ -31,7 +32,6 @@ class EditCollection extends Component {
 			});
 		}
 	}
-
 
 	constructor(props) {
 		super(props);

@@ -1,13 +1,30 @@
 import {actionConstants} from "../constant/user.constants";
 let initialState = {
 	collectionList: "",
+	albumList: "",
 	collectionListError: "",
+	albumListError: "",
 	editCollection: "",
 	editCollectionError: "",
-	isCollectionInEditMode: false
+	isCollectionInEditMode: false,
+	isAlbumInEditMode: false
 };
 export function adminReducer(state = initialState, action) {
 	switch (action.type) {
+		case actionConstants.GET_ALBUM_LIST_SUCCESS:
+			return {
+				...state,
+				albumList: action.data,
+				albumListError: "",
+				isAlbumInEditMode: false
+			};
+		case actionConstants.GET_ALBUM_LIST_ERROR:
+			return {
+				...state,
+				albumList: "",
+				albumListError: action.data,
+				isAlbumInEditMode: false
+			};
 		case actionConstants.GET_COLLECTIONS_LIST_SUCCESS:
 			return {
 				...state,

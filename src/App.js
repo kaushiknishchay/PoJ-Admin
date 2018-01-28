@@ -35,7 +35,7 @@ class App extends Component {
 		let {isLogged} = this.props;
 
 		return (
-				<div style={{"background": "#eee"}}>
+				<div style={{"background": "#eee"}} id="AppBase">
 					<Appbar title="Login">
 						<div style={appBarStyle}>
 							Admin Panel

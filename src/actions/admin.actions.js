@@ -4,24 +4,50 @@ import {userActions} from "./userActions";
 export const adminActions = {
 	getCollectionList,
 	getCollectionInfo,
-	updateCollection
+	updateCollection,
+	getAlbumList
 };
 
-function getCollectionList() {
+function getAlbumList() {
 	return dispatch => {
-		fileUpload.getCollection().then(res => {
+		fileUpload.getAlbum().then(res => {
 			if (res.status === 200 && res.data) {
 				dispatch(success(res.data))
 			} else {
 				dispatch(error(res));
 			}
+		}, err => {
+			dispatch(error(err));
 		}).catch(err => {
-			// if (err.response.status === 401) {
-			// 	dispatch(userActions.logout());
-			// }
-			console.log(err);
+			// console.log(err);
 			dispatch(error(err));
 		});
+	};
+
+	function success(data) {
+		return {type: actionConstants.GET_ALBUM_LIST_SUCCESS, data: data};
+	}
+
+	function error(data) {
+		return {type: actionConstants.GET_ALBUM_LIST_ERROR, data: data};
+	}
+}
+
+function getCollectionList() {
+	return dispatch => {
+		fileUpload.getCollection()
+				.then(res => {
+					if (res.status === 200 && res.data) {
+						dispatch(success(res.data))
+					} else {
+						dispatch(error(res));
+					}
+				}, err => {
+					dispatch(error(err));
+				})
+				.catch(err => {
+					dispatch(error(err));
+				});
 	};
 
 	function success(data) {
@@ -41,10 +67,12 @@ function getCollectionInfo(colKey) {
 			} else {
 				dispatch(error(res));
 			}
+		}, err => {
+			dispatch(error(err));
 		}).catch(err => {
-			if (err.response.status === 401) {
-				dispatch(userActions.logout());
-			}
+			// if (err.response.status === 401) {
+			// 	dispatch(userActions.logout());
+			// }
 			dispatch(error(err));
 		});
 	};
@@ -69,8 +97,9 @@ function updateCollection(val, idx) {
 		}).catch(err => {
 			if (err.response.status === 401) {
 				dispatch(userActions.logout());
+			} else {
+				dispatch(error(err));
 			}
-			dispatch(error(err));
 		});
 
 	};

@@ -8,6 +8,9 @@ export const actionConstants = {
 
 	LOGOUT: 'USERS_LOGOUT',
 
+	GET_ALBUM_LIST_SUCCESS: 'GET_ALBUM_LIST_SUCCESS',
+	GET_ALBUM_LIST_ERROR: 'GET_ALBUM_LIST_ERROR',
+
 	GET_COLLECTIONS_LIST_SUCCESS:'GET_COLLECTIONS_LIST_SUCCESS',
 	GET_COLLECTIONS_LIST_ERROR:'GET_COLLECTIONS_LIST_ERROR',
 	UPDATE_COLLECTION_LIST: 'UPDATE_COLLECTION_LIST',
@@ -17,5 +20,7 @@ export const actionConstants = {
 	GET_COLLECTIONS_INFO_ERROR:'GET_COLLECTIONS_INFO_ERROR',
 };
 
-export const BASE_URL = "http://api.picturesofjoy.com/";
-export const apiBaseUrl = "http://api.picturesofjoy.com/api/v1";
+// export const BASE_URL = "http://api.picturesofjoy.com/";
+export const BASE_URL = "http://picturesofjoy/";
+// export const apiBaseUrl = "http://api.picturesofjoy.com/api/v1";
+export const apiBaseUrl = "http://picturesofjoy/api/v1";

@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
+import PropTypes from "prop-types";
 
 export default class AlertBox extends Component {
+
 	render() {
 		let classStyle = "alert-" + this.props.className;
 		return (
@@ -10,3 +12,8 @@ export default class AlertBox extends Component {
 		)
 	}
 }
+
+AlertBox.propTypes = {
+	title: PropTypes.string.isRequired,
+	className: PropTypes.string.isRequired
+};

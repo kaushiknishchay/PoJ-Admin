@@ -10,8 +10,8 @@ describe("CreateAlbum Rendering", () => {
 
 
 	it('CreateAlbum renders without crashing', () => {
-		const div = document.createElement('div');
-		ReactDOM.render(<CreateAlbum/>, div);
+		// const div = document.createElement('div');
+		// ReactDOM.render(<CreateAlbum/>, div);
 	});
 
 	it("Renderer Snapshot testing", () => {

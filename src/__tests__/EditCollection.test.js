@@ -1,12 +1,11 @@
 import React from "react";
 
 import configureStore from "redux-mock-store";
-
-import {store as realStore} from "../../_helpers/store";
-import {mount} from "enzyme";
+import {mount, shallow} from "enzyme";
 import {Provider} from "react-redux";
-import {HashRouter as Router} from "react-router-dom";
-import EditCollection from "./EditCollection";
+import {store} from '../_helpers/store';
+import {BrowserRouter as Router} from "react-router-dom";
+import EditCollectionPage, {EditCollection} from "../components/Collection/EditCollection";
 
 describe('EditCollection test suite', () => {
 
@@ -41,24 +40,42 @@ describe('EditCollection test suite', () => {
 	];
 	const mockColletionData = collectionData;
 
-	let store, container;
+	let container;
 	const mockStore = configureStore();
 
 	beforeEach(() => {
-		store = mockStore({
-			adminReducer: {
-				collectionList: mockColletionData
-			},
-			authenticate: {}
-		});
+		// store = mockStore({
+		// 	adminReducer: {
+		// 		collectionList: mockColletionData
+		// 	},
+		// 	authenticate: {}
+		// });
+		// store.adminReducer.collectionList = mockColletionData;
 		// store1 = realStore;
 	});
 
 	it('EditCollection renders without crashing', () => {
+
 		// const div = document.createElement('div');
 		// ReactDOM.render(<Provider store={store}><Router><EditCollection/></Router></Provider>, div);
-		// container = mount(<Provider store={store}><Router><EditCollection/></Router></Provider>);
-		// console.log(store);
+		let wrapper = shallow(
+				<Provider store={store}>
+					<Router>
+						<EditCollectionPage />
+					</Router>
+				</Provider>);
+		wrapper.setProps({
+			loggedIn: true,
+			getCollectionList: jest.fn().mockImplementation(()=>{
+				console.log('123');
+			}),
+			getCollectionInfo: jest.fn()
+		});
+
+
+
+		// wrapper.find(EditCollection)
+		console.log(wrapper.instance().props.getCollectionList.mock);
 	});
 
 });

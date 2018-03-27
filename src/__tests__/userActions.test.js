@@ -2,7 +2,7 @@ import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 import {userActions} from "../actions/userActions";
 import {actionConstants, apiBaseUrl} from "../constant/user.constants";
-
+// import localStorage from 'jest-localstorage-mock';
 //Write this line so the mocked version gets called when Original is supposed to
 jest.mock('../service/userService');
 
@@ -52,7 +52,7 @@ describe('Login Action tests', () => {
 	describe('Login Fail Tests', ()=>{
 
 		it('login success but LocalStorage Fail', async () => {
-
+			// jest.resetAllMocks()
 			localStorage.getItem = jest.fn().mockImplementation((api_key)=>{
 				return "";
 			});

@@ -11,25 +11,28 @@ import {actionConstants} from "../../constant/user.constants";
 import {fileUpload} from "../../service/fileUpload";
 import {userActions} from "../../actions/userActions";
 
-class EditCollection extends Component {
+export class EditCollection extends Component {
 
 
-	componentWillMount() {
+	componentDidMount() {
 		document.title = 'View/Edit Collections';
+		if(true) {
+			this.props.getCollectionList();
 
-		this.props.getCollectionList();
+			if (this.props && this.props.match) {
+				let urlParmas = this.props.match.params;
 
-		let urlParmas = this.props.match.params;
-
-		if (urlParmas !== undefined && urlParmas.colId !== undefined && urlParmas.colId !== null) {
-			this.props.getCollectionInfo(urlParmas.colId);
-			this.setState({
-				isInEditMode: true
-			});
-		}else{
-			this.setState({
-				isInEditMode: false
-			});
+				if (urlParmas !== undefined && urlParmas.colId !== undefined && urlParmas.colId !== null) {
+					this.props.getCollectionInfo(urlParmas.colId);
+					this.setState({
+						isInEditMode: true
+					});
+				} else {
+					this.setState({
+						isInEditMode: false
+					});
+				}
+			}
 		}
 	}
 

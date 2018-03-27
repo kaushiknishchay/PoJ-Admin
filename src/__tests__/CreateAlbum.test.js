@@ -3,8 +3,7 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
-import CreateAlbum from "./CreateAlbum";
-import renderer from "react-test-renderer";
+import CreateAlbum from "../components/Albums/CreateAlbum";
 
 describe("CreateAlbum Rendering", () => {
 

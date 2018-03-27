@@ -7,7 +7,7 @@ import Button from "muicss/lib/react/button";
 import {bindActionCreators} from "redux";
 import {userActions} from "../actions/userActions";
 import {Redirect, withRouter} from "react-router-dom";
-class LoginPage extends Component {
+export class Login extends Component {
 
 	constructor(props) {
 		super(props);
@@ -21,14 +21,20 @@ class LoginPage extends Component {
 
 	handleChange(e) {
 		const {name, value} = e.target;
+		// console.log(name, "["+value+"]");
 		this.setState({[name]: value});
 	}
 
 	handleSubmit(e) {
+		console.log(e);
 		e.preventDefault();
+
 		let {username, password} = this.state;
 		if (username && password) {
+			console.log(this.props);
 			this.props.userLogin(username, password);
+		}else {
+			console.log("a");
 		}
 	}
 
@@ -60,8 +66,9 @@ class LoginPage extends Component {
 						       onChange={this.handleChange}/>
 						<Button color="primary"
 						        disabled={loggingIn}
+						        ref="submitLogin"
 						        variant="raised" type="submit"
-						        onClick={(event) => this.handleSubmit(event)}>
+						        onClick={this.handleSubmit}>
 							Login
 						</Button>
 					</Form>
@@ -89,4 +96,4 @@ function mapDispatchToProps(dispatch) {
 // => action stores data in `localStorage` => fires `dispatch` to update `store`
 // => this dispatch goes to `reducers` it makes the object with the values and updates store
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginPage));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

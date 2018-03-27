@@ -15,5 +15,5 @@ export default class AlertBox extends Component {
 
 AlertBox.propTypes = {
 	title: PropTypes.string.isRequired,
-	className: PropTypes.string.isRequired
+	class: PropTypes.string.isRequired
 };
